@@ -1,6 +1,6 @@
 import '../styles/Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensilSpoon, faBars } from '@fortawesome/free-solid-svg-icons'; // Using Free Solid Icons instead
+import { faBars } from '@fortawesome/free-solid-svg-icons'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
@@ -19,18 +19,9 @@ function Navbar() {
                 <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse justify-content-end`} id='navbarSupportedContent'>
                     <ul className='navbar-nav mb-2 mb-lg-0'>
                         <li className='nav-item'>
-                            <a className='nav-link' href='/'>Home</a>
                         </li>
-                        {/* <li className='nav-item'>
-                            <a className='nav-link' href='/recipes'>Recipes</a>
-                        </li> */}
+
                     </ul>
-                    {/* <form className='d-flex'>
-                        <input className='form-control me-2' type='search' placeholder='Search...' aria-label='Search' />
-                        <button className='btn btn-outline-light' type='button'>
-                            <FontAwesomeIcon icon={faUtensilSpoon} />
-                        </button>
-                    </form> */}
                 </div>
             </div>
         </nav>

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/RecipePage.css';
 
 function RecipePage() {
-  const { type } = useParams();
+  const { type } = useParams(); 
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,7 +11,7 @@ function RecipePage() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/${type}/`);
+        const response = await axios.get(`http://localhost:8000/api/${type}/`); 
         setRecipe(response.data);
         setLoading(false);
       } catch (error) {
@@ -23,7 +22,7 @@ function RecipePage() {
     };
 
     fetchRecipe();
-  }, [type]); // `type` is the only dependency
+  }, [type]); // Fetch recipe whenever type changes
 
   if (loading) {
     return <div>Loading ...</div>;
@@ -44,6 +43,10 @@ function RecipePage() {
                 <div className="card-body">
                   <h5 className="card-title">{recipe.name}</h5>
                   <p className="card-text">{recipe.description}</p>
+                  <h6>Ingredients:</h6>
+                  <p>{recipe.ingredients}</p>
+                  <h6>Instructions:</h6>
+                  <p>{recipe.instructions}</p>
                 </div>
               </>
             )}

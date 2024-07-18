@@ -17,16 +17,15 @@ function HomePage() {
 
   const fetchData = async () => {
     try {
-      const responseBreakfast = await axios.get(`http://localhost:8000/api/breakfast/`);
-      const responseLunch = await axios.get(`http://localhost:8000/api/lunch/`);
-      const responseDinner = await axios.get(`http://localhost:8000/api/dinner/`);
+      const responseBreakfast = await axios.get(`http://localhost:8000/api/breakfast/1/`);
+      const responseLunch = await axios.get(`http://localhost:8000/api/lunch/2/`);      
+      const responseDinner = await axios.get(`http://localhost:8000/api/dinner/3/`); 
 
       setBreakfast(responseBreakfast.data);
       setLunch(responseLunch.data);
       setDinner(responseDinner.data);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching data:', error);
       setError(error);
       setLoading(false);
     }
@@ -55,7 +54,13 @@ function HomePage() {
                 <div className="card-body">
                   <h5 className="card-title">{breakfast.name}</h5>
                   <p className="card-text">{breakfast.description}</p>
-                  <Link to={`/recipe/breakfast`} className="btn btn-primary">
+                  <hr />
+                  <h6>Ingredients:</h6>
+                  <p className="card-text">{breakfast.ingredients}</p>
+                  <hr />
+                  <h6>Instructions:</h6>
+                  <p className="card-text">{breakfast.instructions}</p>
+                  <Link to={`/recipe/${breakfast.id}`} className="btn btn-primary">
                     View Recipe
                   </Link>
                 </div>
@@ -75,7 +80,13 @@ function HomePage() {
                 <div className="card-body">
                   <h5 className="card-title">{lunch.name}</h5>
                   <p className="card-text">{lunch.description}</p>
-                  <Link to={`/recipe/lunch`} className="btn btn-primary">
+                  <hr />
+                  <h6>Ingredients:</h6>
+                  <p className="card-text">{lunch.ingredients}</p>
+                  <hr />
+                  <h6>Instructions:</h6>
+                  <p className="card-text">{lunch.instructions}</p>
+                  <Link to={`/recipe/${lunch.id}`} className="btn btn-primary">
                     View Recipe
                   </Link>
                 </div>
@@ -95,7 +106,13 @@ function HomePage() {
                 <div className="card-body">
                   <h5 className="card-title">{dinner.name}</h5>
                   <p className="card-text">{dinner.description}</p>
-                  <Link to={`/recipe/dinner`} className="btn btn-primary">
+                  <hr />
+                  <h6>Ingredients:</h6>
+                  <p className="card-text">{dinner.ingredients}</p>
+                  <hr />
+                  <h6>Instructions:</h6>
+                  <p className="card-text">{dinner.instructions}</p>
+                  <Link to={`/recipe/${dinner.id}`} className="btn btn-primary">
                     View Recipe
                   </Link>
                 </div>
